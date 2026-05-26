@@ -138,7 +138,7 @@ export default function Hero() {
   const blob3Y = useTransform(scrollYProgress, [0, 1], noParallax ? [0, 0] : [0, 100]);
 
   return (
-    <section ref={sectionRef} id="inicio" className="relative min-h-screen overflow-hidden grid-bg pt-20 sm:pt-28 pb-12 sm:pb-20" style={{ background: 'linear-gradient(160deg, #0A0A0F 0%, #050812 20%, #0D0820 50%, #050810 80%, #0A0A0F 100%)' }}>
+    <section ref={sectionRef} id="inicio" className="relative min-h-screen overflow-hidden grid-bg pt-20 sm:pt-28 pb-16 sm:pb-20" style={{ background: 'linear-gradient(160deg, #0A0A0F 0%, #050812 20%, #0D0820 50%, #050810 80%, #0A0A0F 100%)' }}>
       <motion.div className="absolute top-[-5%] right-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none" style={{ y: blob1Y, background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)', filter: 'blur(40px)', willChange: 'transform' }} />
       <motion.div className="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ y: blob2Y, background: 'radial-gradient(circle, rgba(147,51,234,0.07) 0%, transparent 70%)', filter: 'blur(35px)', willChange: 'transform' }} />
       <motion.div className="absolute top-[30%] right-[-3%] w-[300px] h-[300px] rounded-full pointer-events-none" style={{ y: blob3Y, background: 'radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 70%)', filter: 'blur(30px)', willChange: 'transform' }} />
@@ -195,7 +195,7 @@ export default function Hero() {
       </div>
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-600 text-xs">
+        className="absolute bottom-2 sm:bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-600 text-xs">
         <span className="tracking-wider">Explorar</span>
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}>
           <ChevronDownIcon size={18} />
