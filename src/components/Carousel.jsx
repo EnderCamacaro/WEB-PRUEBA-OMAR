@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeftIcon, ChevronRightIcon, PlayIcon, PauseIcon, UserIcon } from './icons';
 import { testimonialVideos } from '../config/videos';
+import AtmosphereBackground from './AtmosphereBackground';
 
 function Card({ video, active }) {
   const ref = useRef(null);
@@ -90,6 +91,7 @@ export default function Carousel() {
 
   return (
     <section id="testimonios" className="relative py-16 sm:py-20 lg:py-24 overflow-hidden" style={{ background: 'linear-gradient(160deg, #0A0A0F 0%, #100A1A 25%, #0A0812 55%, #08080F 80%, #0A0A0F 100%)' }}>
+      <AtmosphereBackground />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(147,51,234,0.06) 0%, transparent 70%)', filter: 'blur(40px)' }} />
       <div className="absolute top-0 left-0 w-[300px] h-[300px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 70%)', filter: 'blur(35px)' }} />
 
