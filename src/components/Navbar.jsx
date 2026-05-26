@@ -65,7 +65,7 @@ export default function Navbar() {
             <div className="flex-1 flex justify-start">
               <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5 transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97] group">
                 <div className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-black text-sm bg-gradient-to-br from-blue-500 to-blue-700 shadow-[0_0_15px_rgba(37,99,235,0.5)] group-hover:shadow-[0_0_20px_rgba(37,99,235,0.7)] transition-shadow duration-300">OB</div>
-                <span className="font-bold text-sm sm:text-base text-white tracking-tight">Omar <span className="text-blue-400">Benvenuto</span></span>
+                <span className="font-bold text-sm sm:text-base text-white tracking-tight whitespace-nowrap">Omar <span className="text-blue-400">Benvenuto</span></span>
               </button>
             </div>
 
