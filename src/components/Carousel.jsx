@@ -32,7 +32,7 @@ function Card({ video, active }) {
       }}
     >
       <div className="relative w-full h-full" style={{ background: '#0F0F1A' }}>
-        <video ref={ref} src={video.src} poster={video.poster} onCanPlay={() => setReady(true)} onError={() => setReady(false)} onEnded={() => setPlaying(false)}
+        <video ref={ref} src={video.src} poster={video.poster} onCanPlay={() => setReady(true)} onLoadedData={() => setReady(true)} onError={() => setReady(false)} onEnded={() => setPlaying(false)}
           playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover" style={{ display: ready ? 'block' : 'none' }} />
         {!ready && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 video-placeholder p-4" style={{ background: '#0F0F1A' }}>
