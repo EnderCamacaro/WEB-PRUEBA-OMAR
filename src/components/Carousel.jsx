@@ -100,9 +100,9 @@ export default function Carousel() {
           <p className="section-subtitle mt-4 max-w-xl mx-auto">Escucha directamente de quienes ya transformaron su vida con el metodo de Omar.</p>
         </motion.div>
 
-        <div className="relative flex items-center justify-center select-none mx-auto" style={{ minHeight: '540px' }} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+        <div className="relative flex items-center justify-center select-none mx-auto" style={{ minHeight: '540px', touchAction: 'pan-y' }} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
           <div className="relative" style={{ width: '280px', height: '540px' }}>
-            <AnimatePresence mode="popLayout">
+            <AnimatePresence>
               {testimonialVideos.map((video, i) => {
                 const offset = i - idx;
                 if (Math.abs(offset) > 1) return null;
@@ -117,8 +117,8 @@ export default function Carousel() {
                     key={video.id}
                     style={{ position: 'absolute', top: 0, left: 0, right: 0, width: '280px', willChange: 'transform' }}
                     initial={false}
-                    animate={{ x, y, scale, opacity: isActive ? 1 : 0.6 }}
-                    exit={{ scale: 0.5, opacity: 0 }}
+                    animate={{ x, y, scale, opacity: isActive ? 1 : 0.85, zIndex: isActive ? 10 : 0 }}
+                    exit={{ scale: 0.5, opacity: 0, zIndex: 0 }}
                     transition={tween}
                   >
                     <Card video={video} active={isActive} />
