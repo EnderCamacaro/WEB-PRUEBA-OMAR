@@ -12,9 +12,9 @@ const texts = [
 ];
 
 const depthCfg = [
-  { blur: '0px', speed: 1, opacity: '0.1', tailOff: 20 },
-  { blur: '2px', speed: 0.65, opacity: '0.06', tailOff: 14 },
-  { blur: '4px', speed: 0.4, opacity: '0.04', tailOff: 10 },
+  { blur: '0px', speed: 1, opacity: '0.25', tailOff: 20 },
+  { blur: '2px', speed: 0.65, opacity: '0.16', tailOff: 14 },
+  { blur: '4px', speed: 0.4, opacity: '0.1', tailOff: 10 },
 ];
 
 function IconHeart({ size }) {
