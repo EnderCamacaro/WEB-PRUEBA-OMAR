@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Test Physical Properties</title>
+<style>
+  body { background: #0A0A0F; color: white; margin: 0; }
+  .section1 { max-width: 72rem; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); min-height: 100px; }
+  .section2 { max-width: 72rem; margin-inline: auto; padding-inline: 1rem; background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); min-height: 100px; }
+</style>
+</head>
+<body>
+  <div class="section1">
+    <h2>TEST 1: margin-left/right auto + padding-left/right</h2>
+    <p>Si esto está centrado con espacio a los costados, la solución es usar propiedades físicas.</p>
+  </div>
+  <div class="section2" style="margin-top: 1rem;">
+    <h2>TEST 2: margin-inline auto + padding-inline</h2>
+    <p>Si esto NO está centrado, confirmamos que Firefox no soporta bien las propiedades lógicas en este contexto.</p>
+  </div>
+</body>
+</html>
