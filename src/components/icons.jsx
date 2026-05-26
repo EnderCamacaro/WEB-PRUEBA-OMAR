@@ -60,8 +60,8 @@ export const MessageCircleIcon = ({ size = 24 }) => (
 
 export const WhatsAppIcon = ({ size = 24 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M8 9h8v1.3h-2v3.4h2v1.3H8v-1.3h2v-3.4H8z" />
+    <circle cx="12" cy="12" r="9.5" />
+    <path d="M8 9h8v1.5h-2v3h2v1.5H8v-1.5h2v-3H8z" />
   </svg>
 );
 

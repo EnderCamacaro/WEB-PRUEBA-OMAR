@@ -13,9 +13,9 @@ export default function Footer() {
     { icon: <WhatsAppIcon size={16} />, href: `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`, label: 'WhatsApp' },
   ];
   const navLinks = [
+    { label: 'Testimonios', href: '#testimonios' },
     { label: 'Metodologia', href: '#beneficios' },
     { label: 'Cursos', href: '#cursos' },
-    { label: 'Testimonios', href: '#testimonios' },
   ];
 
   return (

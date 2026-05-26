@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { MenuIcon, XIcon } from './icons';
 
 const links = [
+  { label: 'Testimonios', href: '#testimonios' },
   { label: 'Metodologia', href: '#beneficios' },
   { label: 'Cursos', href: '#cursos' },
-  { label: 'Testimonios', href: '#testimonios' },
 ];
 
 function getActiveLink() {
