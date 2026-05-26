@@ -1,5 +1,11 @@
 import { motion } from 'framer-motion';
 import { ChevronRightIcon } from './icons';
+import imgEstructuras from '../assets/images/courses/curso-estructuras.png';
+import imgBases from '../assets/images/courses/bases-del-ingles.png';
+import imgIa from '../assets/images/courses/curso-ia.png';
+import imgDet from '../assets/images/courses/curso-det.png';
+import imgNegocios from '../assets/images/courses/ingles-para-negocios.png';
+import imgViajes from '../assets/images/courses/ingles-para-viajes.png';
 
 function PriceRibbon({ price }) {
   return (
@@ -16,12 +22,12 @@ function PriceRibbon({ price }) {
 }
 
 const courses = [
-  { id: 'estructuras', title: 'Estructuras en ingles', image: './assets/images/courses/curso-estructuras.png', color: '#3B82F6', price: '$29/mes', desc: 'Aprende a construir oraciones correctamente paso a paso, desde lo mas basico hasta estructuras complejas.', topics: ['Gramatica esencial', 'Tiempos verbales', 'Formacion de oraciones', 'Ejercicios interactivos'] },
-  { id: 'bases', title: 'Bases del ingles', image: './assets/images/courses/bases-del-ingles.png', color: '#60A5FA', price: '$39/mes', desc: 'Domina las bases solidas del idioma con pronunciacion americana y vocabulario esencial.', topics: ['Pronunciacion americana', 'Top 500 palabras', 'Conversacion basica fluida'] },
-  { id: 'ia', title: 'Curso de IA', image: './assets/images/courses/curso-ia.png', color: '#93C5FD', price: '$49/mes', desc: 'Aprende ingles aprovechando herramientas de Inteligencia Artificial para acelerar tu aprendizaje.', topics: ['Prompts en ingles profesional', 'Vocabulario tech & AI', 'Escritura con IA'] },
-  { id: 'det', title: 'Certificacion DET', image: './assets/images/courses/curso-det.png', color: '#34D399', price: '$59/mes', desc: 'Curso intensivo para aprobar el Duolingo English Test con simulacros y estrategias reales.', topics: ['Simulacros de examen reales', 'Estrategias de cada seccion', 'Garantia de mejora'] },
-  { id: 'negocios', title: 'Ingles para negocios', image: './assets/images/courses/ingles-para-negocios.png', color: '#F59E0B', price: '$49/mes', desc: 'Ingles para cerrar tratos, liderar reuniones y escalar en tu carrera profesional.', topics: ['Negociacion en ingles', 'Email & writing profesional', 'Vocabulario financiero'] },
-  { id: 'viajes', title: 'Ingles para viajes', image: './assets/images/courses/ingles-para-viajes.png', color: '#A78BFA', price: '$39/mes', desc: 'Viaja sin miedo. Aprende todo lo que necesitas para moverte por el mundo con confianza.', topics: ['Aeropuerto & migraciones', 'Hoteles & restaurantes', 'Emergencias & transporte'] },
+  { id: 'estructuras', title: 'Estructuras en ingles', image: imgEstructuras, color: '#3B82F6', price: '$29/mes', desc: 'Aprende a construir oraciones correctamente paso a paso, desde lo mas basico hasta estructuras complejas.', topics: ['Gramatica esencial', 'Tiempos verbales', 'Formacion de oraciones', 'Ejercicios interactivos'] },
+  { id: 'bases', title: 'Bases del ingles', image: imgBases, color: '#60A5FA', price: '$39/mes', desc: 'Domina las bases solidas del idioma con pronunciacion americana y vocabulario esencial.', topics: ['Pronunciacion americana', 'Top 500 palabras', 'Conversacion basica fluida'] },
+  { id: 'ia', title: 'Curso de IA', image: imgIa, color: '#93C5FD', price: '$49/mes', desc: 'Aprende ingles aprovechando herramientas de Inteligencia Artificial para acelerar tu aprendizaje.', topics: ['Prompts en ingles profesional', 'Vocabulario tech & AI', 'Escritura con IA'] },
+  { id: 'det', title: 'Certificacion DET', image: imgDet, color: '#34D399', price: '$59/mes', desc: 'Curso intensivo para aprobar el Duolingo English Test con simulacros y estrategias reales.', topics: ['Simulacros de examen reales', 'Estrategias de cada seccion', 'Garantia de mejora'] },
+  { id: 'negocios', title: 'Ingles para negocios', image: imgNegocios, color: '#F59E0B', price: '$49/mes', desc: 'Ingles para cerrar tratos, liderar reuniones y escalar en tu carrera profesional.', topics: ['Negociacion en ingles', 'Email & writing profesional', 'Vocabulario financiero'] },
+  { id: 'viajes', title: 'Ingles para viajes', image: imgViajes, color: '#A78BFA', price: '$39/mes', desc: 'Viaja sin miedo. Aprende todo lo que necesitas para moverte por el mundo con confianza.', topics: ['Aeropuerto & migraciones', 'Hoteles & restaurantes', 'Emergencias & transporte'] },
 ];
 
 function CourseCard({ course, index }) {
