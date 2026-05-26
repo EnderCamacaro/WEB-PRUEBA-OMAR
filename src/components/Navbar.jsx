@@ -8,7 +8,7 @@ const links = [
 ];
 
 function getActiveLink() {
-  const scrollY = window.scrollY + 120;
+  const scrollY = window.scrollY + 80;
   const sections = links.map(l => {
     const el = document.querySelector(l.href);
     if (!el) return { ...l, offset: Infinity };
