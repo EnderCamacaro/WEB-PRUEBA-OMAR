@@ -1,7 +1,6 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
 import StickyCta from './components/StickyCta';
 import Carousel from './components/Carousel';
 import Benefits from './components/Benefits';
@@ -20,7 +19,6 @@ export default function App() {
         <Pricing />
       </main>
       <Footer />
-      <WhatsAppButton />
       <StickyCta />
     </div>
   );
