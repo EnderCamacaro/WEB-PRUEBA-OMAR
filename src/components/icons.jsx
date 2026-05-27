@@ -46,7 +46,7 @@ export const UserIcon = ({ size = 24 }) => (
   </svg>
 );
 
-export const CheckIcon = ({ size = 16, color = "#3B82F6" }) => (
+export const CheckIcon = ({ size = 16, color = "#8B5CF6" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="20 6 9 17 4 12" />
   </svg>
@@ -137,8 +137,8 @@ export const CrownIcon = ({ size = 18 }) => (
   </svg>
 );
 
-export const StarIcon = ({ size = 18 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+export const StarIcon = ({ size = 18, fill = "none" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
   </svg>
 );
