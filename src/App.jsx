@@ -1,11 +1,10 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Footer from './components/Footer';
-import StickyCta from './components/StickyCta';
 import Carousel from './components/Carousel';
 import Benefits from './components/Benefits';
 import Courses from './components/Courses';
 import Pricing from './components/Pricing';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -19,7 +18,6 @@ export default function App() {
         <Pricing />
       </main>
       <Footer />
-      <StickyCta />
     </div>
   );
 }
