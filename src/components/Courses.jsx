@@ -19,9 +19,6 @@ function CourseCard({ course }) {
     <div className="flex flex-col w-full max-w-[350px] mx-auto rounded-2xl border border-purple-500/15 bg-[rgba(255,255,255,0.02)] overflow-hidden hover:border-purple-500/30 transition-all duration-300">
       <div className="relative h-[200px] overflow-hidden">
         <img src={course.image} alt={course.title} className="w-full h-full object-cover" loading="lazy" />
-        <div className="absolute top-3 right-3 bg-purple-600/90 text-white text-xs font-bold px-3 py-1 rounded-full">
-          {course.price}
-        </div>
       </div>
       <div className="p-5 flex flex-col flex-1">
         <h3 className="text-lg font-bold text-white mb-2">{course.title}</h3>
