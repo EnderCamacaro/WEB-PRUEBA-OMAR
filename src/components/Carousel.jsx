@@ -2,11 +2,7 @@ import { useRef, useState, useEffect, useCallback } from 'react';
 import { PlayIcon } from './icons';
 import { testimonialVideos } from '../config/videos';
 
-const CARD_W = 260;
-const GAP = 16;
-const STEP = CARD_W + GAP;
-
-function TestimonialCard({ video, showVideo }) {
+function TestimonialCard({ video, active }) {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
@@ -25,28 +21,27 @@ function TestimonialCard({ video, showVideo }) {
   }, []);
 
   useEffect(() => {
-    if (!showVideo && playing) stop();
-  }, [showVideo, playing, stop]);
+    if (!active && playing) stop();
+  }, [active, playing, stop]);
 
   useEffect(() => {
-    if (!showVideo) setReady(false);
-  }, [showVideo]);
+    if (!active) setReady(false);
+  }, [active]);
 
   return (
     <div
-      className="flex-shrink-0 rounded-2xl overflow-hidden border border-purple-500/20 cursor-pointer"
+      className="flex-shrink-0 rounded-2xl overflow-hidden border border-purple-500/20 cursor-pointer snap-center"
       style={{
-        width: CARD_W + 'px',
+        width: 'var(--card-w)',
         aspectRatio: '9/16',
         maxHeight: '500px',
         background: '#0A0A0A',
-        scrollSnapAlign: 'start',
         contain: 'layout style paint',
       }}
       onClick={play}
     >
       <div className="relative w-full h-full">
-        {showVideo && (
+        {active && (
           <video
             ref={videoRef}
             src={video.src}
@@ -63,7 +58,7 @@ function TestimonialCard({ video, showVideo }) {
         <img
           src={video.poster}
           alt={video.name}
-          className={`absolute inset-0 w-full h-full object-cover ${showVideo && ready ? 'hidden' : 'block'}`}
+          className={`absolute inset-0 w-full h-full object-cover ${active && ready ? 'hidden' : 'block'}`}
           loading="lazy"
         />
         {!playing && (
@@ -71,7 +66,7 @@ function TestimonialCard({ video, showVideo }) {
             <div className="w-14 h-14 rounded-full flex items-center justify-center backdrop-blur-xl bg-black/50 border border-white/20 transition-transform hover:scale-110">
               <PlayIcon size={24} fillColor="white" strokeColor="white" />
             </div>
-            {!showVideo && <p className="text-gray-500 text-xs font-medium">{video.name}</p>}
+            {!active && <p className="text-gray-500 text-xs font-medium px-2 text-center">{video.name}</p>}
           </div>
         )}
         <div className="absolute bottom-0 left-0 right-0 p-3 z-20" style={{ background: 'linear-gradient(transparent, rgba(0,0,0,0.9))' }}>
@@ -91,18 +86,31 @@ function TestimonialCard({ video, showVideo }) {
 export default function Carousel() {
   const scrollRef = useRef(null);
   const [activeIdx, setActiveIdx] = useState(0);
+  const [cardW, setCardW] = useState(260);
+
+  useEffect(() => {
+    const onResize = () => {
+      const isMobile = window.innerWidth < 768;
+      setCardW(isMobile ? window.innerWidth - 64 : 260);
+    };
+    onResize();
+    window.addEventListener('resize', onResize, { passive: true });
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
     const onScroll = () => {
-      const idx = Math.round(el.scrollLeft / STEP);
+      const gap = 16;
+      const step = cardW + gap;
+      const idx = Math.round(el.scrollLeft / step);
       setActiveIdx(Math.max(0, Math.min(idx, testimonialVideos.length - 1)));
     };
     el.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     return () => el.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [cardW]);
 
   return (
     <section id="testimonios" className="relative py-16 sm:py-20 lg:py-24 overflow-hidden" style={{ background: 'linear-gradient(160deg, #050505 0%, #080510 25%, #0A0812 55%, #08080F 80%, #050505 100%)' }}>
@@ -114,13 +122,21 @@ export default function Carousel() {
           <p className="text-gray-400 mt-4 max-w-xl mx-auto text-base">Resultados reales de estudiantes que transformaron su vida con el inglés.</p>
         </div>
 
-        <div
-          ref={scrollRef}
-          className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
-        >
-          {testimonialVideos.map((video, i) => (
-            <TestimonialCard key={video.id} video={video} showVideo={Math.abs(activeIdx - i) <= 1} />
+        <div style={{ '--card-w': cardW + 'px' }}>
+          <div
+            ref={scrollRef}
+            className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none px-4 md:px-0"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
+          >
+            {testimonialVideos.map((video, i) => (
+              <TestimonialCard key={video.id} video={video} active={activeIdx === i} />
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center gap-2 mt-6 md:hidden">
+          {testimonialVideos.map((_, i) => (
+            <div key={i} className={`h-1.5 rounded-full transition-all duration-300 ${i === activeIdx ? 'w-6 bg-purple-500' : 'w-1.5 bg-gray-700'}`} />
           ))}
         </div>
       </div>
